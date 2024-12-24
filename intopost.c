@@ -16,6 +16,9 @@ void infixToPostfix(char *infix, char *postfix) {
             }
             pop();  // Pop the '(' from the stack
         } 
+        else if (ch == ' ') {
+             continue;
+        }
         else if (isOperator(symbol)) {
             while (!isEmpty() && precedence(peek()) >= precedence(symbol)) {
                 postfix[k++] = pop();  // Pop operators from the stack based on precedence
